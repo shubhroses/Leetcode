@@ -26,3 +26,11 @@ class Solution:
         3. Base case
             if amount == 0 return 0
         """
+
+        # Iterative solution
+        dp = [math.inf]*(amount+1)
+        dp[0] = 0
+        for coin in coins:
+            for i in range(coin, amount+1):
+                dp[i] = min(dp[i], dp[i-coin]+1)
+        return dp[amount] if dp[amount] != math.inf else -1
