@@ -1,0 +1,16 @@
+class Solution:
+    def coinChange(self, coins: List[int], amount: int) -> int:
+        dp = {}
+        def helper(amount):
+            if amount == 0:
+                return 0
+            if amount in dp:
+                return dp[amount]
+            ans = math.inf
+            for coin in coins:
+                if amount >= coin:
+                    ans = min(ans, helper(amount-coin)+1)
+            dp[amount] = ans
+            return ans
+        ans = helper(amount)
+        return ans if ans != math.inf else -1
