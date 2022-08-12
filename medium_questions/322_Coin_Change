@@ -14,3 +14,15 @@ class Solution:
             return ans
         ans = helper(amount)
         return ans if ans != math.inf else -1
+
+        """
+        1. Function to solve problem for a certain state
+            At a given state need to know current total
+            dp(amount) returns minimum coins needed for total remaining
+        
+        2. To tranition between states
+            dp(total) = min(dp(amount-coin)+1) for all coins for all options 
+
+        3. Base case
+            if amount == 0 return 0
+        """
