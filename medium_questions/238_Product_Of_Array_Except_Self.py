@@ -1,12 +1,8 @@
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
         """
-        nums = [1, 2, 3, 4]
-                      
-                         
+        nums = [1, 2, 3, 4]        
         l =    [1, 1, 2, 6]
-        
-                      
         r =    [24, 12, 4, 1]
         """
 
