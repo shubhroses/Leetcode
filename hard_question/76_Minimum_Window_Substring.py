@@ -1,0 +1,101 @@
+class Solution:
+    def minWindow(self, s: str, t: str) -> str:
+        """
+        brute force. look at every substring of s and see if it contains all letters in t and return min
+        m^2 * nlogm
+        
+        two pointers
+        
+        minArr = s
+        minArr = s[i:j+1]
+        
+        t = "ABC"
+             0123456789012
+        s = "ADOBECODEBANC"
+             i
+             j
+            
+        minArr = "ADOBEC"
+        
+         
+        d = {A:0, D:7, O:6, B:9, E:8, C:5} every letter in s and its index found in window 
+        
+        Since all letters in t are not in window, j+=1
+        
+        need function to check if all letters in t found in window.
+        
+        When all letters in t in window and length of window less than minArray, update minArray
+        
+        If s[j] in d: #update 
+            s[j] = j
+            
+        When we encounter a duplicate letter, move the left pointer while all elements in t are still in s 
+        
+        
+        t = aa
+        
+            01234567
+        s = a
+                i
+                   j
+             
+        window = "CDEBA"
+        c = {C:1, B:1, A:1}
+        
+        canRemoveIth = True
+        
+        minArray = CODEBANC
+        
+        
+        t = aa
+        window = 
+                 i
+        tCount = {A:1, B:1, C:1}
+        windowCounter = {C:2, 0:1, D:1, E:1, B:1, A:1, N:1}
+        """
+
+        tCount = {}
+        for c in t:
+            tCount[c] = tCount.get(c, 0) + 1
+            
+            
+        def tInWindow(windowCounter):
+            res = True
+            
+            for l,c in tCount.items():
+                if windowCounter.get(l, 0) < c:
+                    res = False     
+            return res
+        
+        
+        def canRemoveIth(windowCounter, i): 
+            if tInWindow(windowCounter) and s[i] in tCount and windowCounter[s[i]] == tCount[s[i]]:
+                return False
+            return True
+ 
+        minArr = s
+        c = {} #{letter:count}
+        i, j = 0, 0 
+        
+        while j < len(s):
+            c[s[j]] = c.get(s[j], 0) + 1
+            j+=1
+            #window = s[i:j]
+            
+            if tInWindow(c):
+                while canRemoveIth(c, i) and i < len(s):
+                    c[s[i]] = c[s[i]]-1
+                    if c[s[i]] <= 0:
+                        del c[s[i]]
+                    i+=1
+
+                if j-i < len(minArr):
+                    minArr = s[i:j]
+          
+        minCount = {}
+        for c in minArr:
+            minCount[c] = minCount.get(c, 0) + 1 
+         
+        if not tInWindow(minCount):
+            return ""
+        return minArr
