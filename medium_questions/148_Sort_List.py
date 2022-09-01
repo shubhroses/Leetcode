@@ -47,7 +47,7 @@ class Solution:
         return res
             
         #Neet code solution
-        def getMid(self, head):
+    def getMid(self, head):
         slow, fast = head, head.next
         while fast and fast.next:
             slow = slow.next
