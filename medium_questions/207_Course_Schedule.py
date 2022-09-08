@@ -77,3 +77,29 @@ class Solution:
                 return False
                 
         return True
+
+        # Neetcode solution
+        adj = {i:[] for i in range(numCourses)}
+        for [a, b] in prerequisites:
+            adj[a].append(b)
+        
+        visited = set()
+        
+        def checkCycle(course):
+            if course in visited:
+                return True
+            if adj[course] == []:
+                return False
+            visited.add(course)
+            for pre in adj[course]:
+                if checkCycle(pre):
+                    return True
+            visited.remove(course)
+            adj[course] = []
+            return False
+        
+        for course in range(numCourses):
+            if checkCycle(course):
+                return False
+                
+        return True
