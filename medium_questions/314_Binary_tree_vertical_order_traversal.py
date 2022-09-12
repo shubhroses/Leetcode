@@ -60,3 +60,18 @@ class Solution:
         for i in range(int(mn), int(mx+1)):
             res.append(adj_list[i])
         return res
+
+        """
+        Why can't I do my technique with dfs 
+        
+            3
+        9       8
+          7
+            6
+        This is the problem with dfs
+        You will reach 6 before 8 so adj[1] = [6, 8]
+        but we want [8, 6] in proper vertical order
+        
+        So bfs is betters because we will always go level by level 
+        visiting 8 before 6
+        """
