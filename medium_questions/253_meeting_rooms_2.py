@@ -22,28 +22,6 @@ class Solution:
         return used_rooms
                 
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         if not intervals:
             return 0
         
@@ -58,11 +36,6 @@ class Solution:
                 heapq.heappop(free_rooms)
             heapq.heappush(free_rooms, i[1])
         return len(free_rooms)
-        
-        
-        
-        
-        
         
         
         """
