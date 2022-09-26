@@ -19,7 +19,7 @@ class Solution:
                     return True
         return False
         
-         def helper(i, j, c):
+        def helper(i, j, c):
             if c >= len(word):
                 return True
             elif i < 0 or i >= len(board) or j < 0 or j >= len(board[0]) or board[i][j] != word[c]:
