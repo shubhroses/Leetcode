@@ -19,6 +19,27 @@ class Solution:
                     return True
         return False
         
+         def helper(i, j, c):
+            if c >= len(word):
+                return True
+            elif i < 0 or i >= len(board) or j < 0 or j >= len(board[0]) or board[i][j] != word[c]:
+                return False
+            
+            temp = board[i][j]
+            board[i][j] = None
+            if (helper(i-1, j, c+1) or \
+               helper(i+1, j, c+1) or  \
+               helper(i, j-1, c+1) or  \
+               helper(i, j+1, c+1)):
+                return True
+            board[i][j] = temp
+            
+        for i in range(len(board)):
+            for j in range(len(board[0])):
+                if helper(i, j, 0):
+                    return True
+        return False
+
         """
         word = ABC
                c
