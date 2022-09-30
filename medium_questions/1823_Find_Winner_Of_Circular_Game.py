@@ -19,9 +19,6 @@ class Solution:
         
         cur = 2
         index = (2 + 2) % 3 - 1 => 0
-        
-        
-        
         """
         nums = [i+1 for i in range(n)]
         
