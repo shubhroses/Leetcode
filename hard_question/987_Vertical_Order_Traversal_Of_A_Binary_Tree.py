@@ -86,4 +86,3 @@ class Solution:
         for i in range(mn, mx+1):
             result.append(res[i])
         return result
-        
