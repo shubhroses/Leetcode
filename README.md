@@ -39,23 +39,23 @@ Digit DP	 | [here](https://leetcode.com/list/e5dufyqj)
 
 I have also learnt some algorithms which made some questions very easy for me to solve, shared the list below.
 
-Algo Type |	resource
-----------|------------
-# |	Pattern Matching
-Z -Algo	 | uc davis lectures (gold standard lectures)
-Prefix funcion	 |	fluent algorithms YT Channel
+Algo Type | resource
+----------|---------
+# | Pattern Matching
+Z -Algo | uc davis lectures (gold standard lectures)
+Prefix funcion | fluent algorithms YT Channel
 Trie | Easy to learn
-#	 |	Palindrome
-Manachers - O(n)	 |	IDeserve YT Channel
-# |		Graph
-Moris traversal |		Kashish Mehndiratta Yt Channel
-DSU |		Tushar Roy
-Kruskal	 |	Just an extension of DSU
-0-1 BFS |		pepcoding or luv YT channel
-Other graph concepts |		Wiliam fest, CodeNCode, Striver, Utkarsh Gupta
-#	 |	Optimization
-DP/Recursion/Heap/Stack/Sliding Window |		Aditya Verma (Legend), pepcoding
-Segment Tree |	Utkarsh Gupta free live classes on Unacademy
+# | Palindrome
+Manachers - O(n) | IDeserve YT Channel
+# | Graph
+Moris traversal | Kashish Mehndiratta Yt Channel
+DSU | Tushar Roy
+Kruskal | Just an extension of DSU
+0-1 BFS | pepcoding or luv YT channel
+Other graph concepts | Wiliam fest, CodeNCode, Striver, Utkarsh Gupta
+# | Optimization
+DP/Recursion/Heap/Stack/Sliding Window | Aditya Verma (Legend), pepcoding
+Segment Tree | Utkarsh Gupta free live classes on Unacademy
 
 Other resources to learn algorithms
 
