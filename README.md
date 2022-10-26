@@ -4,7 +4,7 @@ Hi I have been actively using leetcode for almost 6 months now and have solved 3
 
 I have collected various lists of question by pattern and concepts. I hope these lists below help you in preparation journey.
 
-#concepts | #links
+**concepts** | **links**
 ---------|-----------
 String | [here](https://leetcode.com/list/ehkbkaxt)
 Binary Search	 | [imp](https://leetcode.com/list/e5vjd5xs)
