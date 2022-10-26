@@ -38,3 +38,41 @@ Multi Dimesion DP | 	[here](https://leetcode.com/list/e5dubese)
 Digit DP	 | [here](https://leetcode.com/list/e5dufyqj)
 
 I have also learnt some algorithms which made some questions very easy for me to solve, shared the list below.
+
+Algo Type |	resource
+----------------------
+#	 |	Pattern Matching
+Z -Algo	 |	uc davis lectures (gold standard lectures)
+Prefix funcion	 |	fluent algorithms YT Channel
+Trie |		Easy to learn
+#	 |	Palindrome
+Manachers - O(n)	 |	IDeserve YT Channel
+# |		Graph
+Moris traversal |		Kashish Mehndiratta Yt Channel
+DSU |		Tushar Roy
+Kruskal	 |	Just an extension of DSU
+0-1 BFS |		pepcoding or luv YT channel
+Other graph concepts |		Wiliam fest, CodeNCode, Striver, Utkarsh Gupta
+#	 |	Optimization
+DP/Recursion/Heap/Stack/Sliding Window |		Aditya Verma (Legend), pepcoding
+Segment Tree |		Utkarsh Gupta free live classes on Unacademy
+
+Other resources to learn algorithms
+
+[cp-algorithms](https://cp-algorithms.com/)
+[USACO](https://usaco.guide/)
+
+**Tip: Tip: Learn algorithms with black box method**
+
+![image](https://user-images.githubusercontent.com/46800049/198150056-e571bfc2-14ce-46ea-bc91-39f741715f15.png)
+
+you can learn concepts of most algorithms and solve problems with them without actually knowing the internal working, but eventual learn the internal working. Refer below
+
+![image](https://user-images.githubusercontent.com/46800049/198150093-a811d9f2-2d92-4cac-b1c9-b241f7153257.png)
+
+By this method you can cover a lot of breadth and depth concurrently
+
+I use this personally, this was inspired from colin galen.
+
+All The Best !!!
+
