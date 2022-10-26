@@ -7,7 +7,7 @@ I have collected various lists of question by pattern and concepts. I hope these
 concepts | links
 ---------|-----------
 String | [here](https://leetcode.com/list/ehkbkaxt)
-Binary Search	 | https://leetcode.com/list/e5vjd5xs
+Binary Search	 | [imp](https://leetcode.com/list/e5vjd5xs)
 Two Pointers	 | vv-imp
 Two Pointers - Fast-Slow	 | v-imp
 Sliding Window	 | imp
