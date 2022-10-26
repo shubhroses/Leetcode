@@ -40,7 +40,7 @@ Digit DP	 | [here](https://leetcode.com/list/e5dufyqj)
 I have also learnt some algorithms which made some questions very easy for me to solve, shared the list below.
 
 Algo Type |	resource
-----------------------
+----------|------------
 #	 |	Pattern Matching
 Z -Algo	 |	uc davis lectures (gold standard lectures)
 Prefix funcion	 |	fluent algorithms YT Channel
