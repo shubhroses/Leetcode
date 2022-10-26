@@ -6,7 +6,7 @@ I have collected various lists of question by pattern and concepts. I hope these
 
 concepts | links
 ---------|-----------
-String | here
+String | [here](https://leetcode.com/list/ehkbkaxt)
 Binary Search	 | imp
 Two Pointers	 | vv-imp
 Two Pointers - Fast-Slow	 | v-imp
