@@ -36,3 +36,5 @@ Interval DP	 | [here](https://leetcode.com/list/e5dtxk8r)
 Merging Interval DP | 	[here](https://leetcode.com/list/ehghlx1r)
 Multi Dimesion DP | 	[here](https://leetcode.com/list/e5dubese)
 Digit DP	 | [here](https://leetcode.com/list/e5dufyqj)
+
+I have also learnt some algorithms which made some questions very easy for me to solve, shared the list below.
