@@ -41,7 +41,7 @@ I have also learnt some algorithms which made some questions very easy for me to
 
 Algo Type | resource
 ----------|---------
- # | Pattern Matching
+[#] | Pattern Matching
 Z -Algo | uc davis lectures (gold standard lectures)
 Prefix funcion | fluent algorithms YT Channel
 Trie | Easy to learn
