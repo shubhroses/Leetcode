@@ -21,3 +21,7 @@ class Solution:
         totPlus1 = sum(damage) + 1
         totPlus1 -= min(armor, max(damage))
         return totPlus1
+
+        totPlus1 = sum(damage) + 1
+        totPlus1 -= min(armor, max(damage))
+        return totPlus1
