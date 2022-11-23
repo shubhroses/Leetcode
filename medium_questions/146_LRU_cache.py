@@ -61,3 +61,128 @@ class LRUCache:
         else:
             node.value = value
             self._move_to_head(node)
+
+
+class DLNode:
+    def __init__(self):
+        self.key = None
+        self.value = None
+        self.next = None
+        self.prev = None
+
+class LRUCache:
+
+    def __init__(self, capacity: int):
+        # Doubly linked list node 
+        self.head = DLNode()
+        self.tail = DLNode()
+        self.head.next = self.tail
+        self.tail.prev = self.head
+        
+        # Map to maintain elements 
+        # {key : node(key, value)}
+        self.dict = {}
+        
+        
+        # Capacity
+        self.capacity = capacity
+        self.count = 0
+        
+    def addToHead(self, node):
+        self.head.next.prev = node
+        node.next = self.head.next
+        
+        self.head.next = node
+        node.prev = self.head
+        
+        """
+        head -> tail
+             <-
+             
+        head -> node -> tail
+             <-      <-
+        """
+        
+    def popFromTail(self):
+        """
+        head -> node -> tail
+             <-      <-
+        """
+        node = self.tail.prev
+        node.prev.next = self.tail
+        self.tail.prev = node.prev
+        return node
+        
+    def removeFromList(self, node):
+        """
+        head -> node -> tail
+             <-      <-
+        """
+        node.prev.next = node.next
+        node.next.prev = node.prev 
+        
+    def moveToHead(self, node):
+        self.removeFromList(node)
+        self.addToHead(node)
+        
+        
+    def get(self, key: int) -> int:
+        
+        # print(key, self.dict[key].value)
+        node = self.dict.get(key, None)
+        if not node:
+            return -1
+        self.moveToHead(node)
+        return node.value
+        
+
+    def put(self, key: int, value: int) -> None:
+        if key in self.dict:
+            # Update value of key
+            self.dict[key].value = value
+            node = self.dict[key]
+            self.removeFromList(node)
+            self.addToHead(node)
+        else:
+            # key not in dictionary 
+            """
+            1. Create new node with value
+            2. If count == capacity
+                Remove from tail
+            3. Else 
+                Add to head
+            """
+            newNode = DLNode()
+            newNode.value = value
+            newNode.key = key
+            self.dict[key] = newNode
+            self.count += 1
+            self.addToHead(newNode)
+            if self.count > self.capacity:
+                removeNode = self.popFromTail()
+                del self.dict[removeNode.key]
+                del removeNode
+                self.count -=1
+                
+            
+
+
+
+            
+             
+        
+
+"""
+Maintain map to allow get
+
+Add key-value to cache using put if not already in, if number of keys exceeds the capacity, evict the least recently used key 
+
+Add to head 
+Pop from tail
+Remove form list 
+"""
+
+# Your LRUCache object will be instantiated and called as such:
+# obj = LRUCache(capacity)
+# param_1 = obj.get(key)
+# obj.put(key,value)
