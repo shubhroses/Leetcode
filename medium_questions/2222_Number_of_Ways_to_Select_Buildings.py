@@ -32,3 +32,4 @@ class Solution:
                 dp["101"] += dp["10"]
                 
         return dp["010"] + dp["101"]
+        """REsave""" 
