@@ -55,3 +55,5 @@ class Solution:
         for i, j in groups:
             res += i*j
         return int(res // 2)
+
+        
