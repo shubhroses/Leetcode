@@ -1,20 +1,21 @@
 class Solution:
     def minimumFuelCost(self, roads: List[List[int]], seats: int) -> int:
-        n = len(roads) + 1
         graph = defaultdict(list)
         for a, b in roads:
             graph[a].append(b)
             graph[b].append(a)
         
-        def dfs(u, p):
-            cnt = 1
-            for v in graph[u]:
-                if v == p: continue
-                cnt += dfs(v, u)
-            if u != 0:
-                self.ans += math.ceil(cnt / seats)  # number of litters for `cnt` people to travel from node `u` to node `p`
-            return cnt
-                
+        def dfs(current, previous):
+            count = 1
+            for neighbor in graph[current]:
+                if neighbor == previous:
+                    continue
+                count += dfs(neighbor, current)
+            if current != 0:
+                self.ans += math.ceil(count / seats)
+            return count
+        
         self.ans = 0
-        dfs(0, -1)
+        dfs(current = 0, previous = -1)
         return self.ans
+       
