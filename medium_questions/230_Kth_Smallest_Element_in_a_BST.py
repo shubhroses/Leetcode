@@ -17,3 +17,22 @@ class Solution:
             if not k:
                 return root.val
             root = root.right
+
+        # Recursive
+        """
+        Do in order traversal 
+        """
+        self.K = k
+        def helper(node):
+            if not node:
+                return
+            helper(node.left)
+            self.K -= 1
+            if self.K == 0:
+                self.res = node.val
+                return
+            helper(node.right)
+
+        self.res = None
+        helper(root)
+        return self.res   
