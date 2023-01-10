@@ -87,3 +87,22 @@ class Solution:
         
         x = []
         """
+
+class Solution:
+    def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+        """
+        :type lists: List[ListNode]
+        :rtype: ListNode
+        """
+        backup = new_head = ListNode(0)
+        Q = []
+        for list_head_id,list_head in enumerate(lists):
+            if list_head:
+                heappush(Q,(list_head.val,list_head_id,list_head))
+        while Q:
+            _,list_id,new_head.next =  heappop(Q)
+            new_head = new_head.next
+            if new_head.next:
+                heappush(Q,(new_head.next.val,list_id,new_head.next))
+        return backup.next
+        
