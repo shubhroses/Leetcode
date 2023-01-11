@@ -55,3 +55,19 @@ class Solution:
         quickselect(0, n - 1, n - k)
         # Return top k frequent elements
         return unique[n - k:]
+
+
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        counter = {}
+        for n in nums:
+            counter[n] = counter.get(n, 0) + 1
+        
+        countNum = []
+
+        for key, val in counter.items():
+            countNum.append((val, key))
+        
+        countNum.sort(reverse=True)
+
+        return [countNum[i][1] for i in range(min(k, len(countNum)))]
