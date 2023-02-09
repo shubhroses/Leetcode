@@ -1,5 +1,58 @@
 class Solution:
     def minMeetingRooms(self, intervals: List[List[int]]) -> int:
+        """
+        Any time there is an overlap increment count
+        Any time a meeting ends decrement count
+        Res is max that count ever was
+
+        maintain min heap with end times, when current start is greater than min heap pop from heap
+
+        1. Sort intervals
+        2. 
+
+        [[0,30],[5,10],[15,20]]
+                  i
+
+        heap: [30]
+
+        res = 1
+
+        if s < top heap:
+            add e to heap
+            update res
+        while s > top heap:
+            pop from heap 
+
+        return res
+
+
+        [[1,5],[8,9],[8,9]]
+                s e
+          
+        res = 1
+        heap = [5]
+        """
+        res = 1
+
+        if not intervals:
+            return 0
+
+        intervals.sort(key = lambda x:x[0])
+
+        heap = [intervals[0][1]]
+        heapq.heapify(heap)
+
+        for s, e in intervals[1:]:
+            while heap and s >= heap[0]:
+                heapq.heappop(heap)
+            heapq.heappush(heap, e)
+            res = max(res, len(heap))
+
+        return res
+
+
+class Solution:
+    def minMeetingRooms(self, intervals: List[List[int]]) -> int:
         if not intervals:
             return 0
         used_rooms = 0
