@@ -28,3 +28,28 @@ class Solution:
             slow2 = nums[slow2]
             if slow == slow2:
                 return slow
+
+
+
+class Solution:
+    def findDuplicate(self, nums: List[int]) -> int:
+        saved = nums
+
+        i = 0
+        while i < len(nums):
+            if nums[i] != i+1:
+                j = nums[i]-1
+                if nums[i] != nums[j]:
+                    nums[j], nums[i] = nums[i], nums[j]
+                else:
+                    return nums[i]
+            else:
+                i+=1
+        
+        for i, n in enumerate(nums):
+            if i != n:
+                res = n
+                break
+
+        nums = saved
+        return res
