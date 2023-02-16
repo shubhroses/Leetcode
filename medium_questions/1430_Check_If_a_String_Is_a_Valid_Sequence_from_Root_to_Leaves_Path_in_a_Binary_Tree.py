@@ -21,5 +21,4 @@ class Solution:
                 right = dfs(node.right, curPath + [node.val])
             return left or right
 
-
         return dfs(root, [])
