@@ -17,3 +17,8 @@ class Solution:
             return max(leftTree, rightTree) + 1
         dfs(root)
         return diameter
+
+"""
+Difficulty: Forgot to call dfs function
+ learned to uses nonlocal to use a variable in a function that is first created in parent function
+"""
