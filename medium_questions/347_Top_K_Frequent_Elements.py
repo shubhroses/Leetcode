@@ -71,3 +71,28 @@ class Solution:
         countNum.sort(reverse=True)
 
         return [countNum[i][1] for i in range(min(k, len(countNum)))]
+
+
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        c = Counter(nums)
+        # print(c)
+
+        heap = []
+        heapq.heapify(heap)
+
+        for num, count in c.items():
+            # print(heap)
+            heapq.heappush(heap, (count, num))
+            if len(heap) > k:
+                heapq.heappop(heap)
+        return [heap[i][1] for i in range(len(heap))]
+        
+        """
+Issues:
+    When doing heappush, forget to enter heap and value
+    Ensure that you are properly entering count value as first element in heap
+
+
+        """
+        
