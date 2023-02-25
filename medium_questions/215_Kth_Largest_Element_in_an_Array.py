@@ -51,3 +51,15 @@ class Solution:
         6. Return first mid other wise. 
         """
         
+class Solution:
+    def findKthLargest(self, nums: List[int], k: int) -> int:
+        heap = []
+        heapq.heapify(heap)
+
+        for num in nums:
+            # print(heap)
+            heapq.heappush(heap, num)
+            while len(heap) > k:
+                top = heapq.heappop(heap)
+                # print("popped :", top)
+        return heap[0]
