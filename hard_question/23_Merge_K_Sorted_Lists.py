@@ -105,4 +105,25 @@ class Solution:
             if new_head.next:
                 heappush(Q,(new_head.next.val,list_id,new_head.next))
         return backup.next
+    
+
+class Solution:
+    def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+        
+        h = []
+        for i in range(len(lists)):
+            if lists[i]:
+                heappush(h, [lists[i].val, i])
+                lists[i] = lists[i].next
+        
+        head = p = ListNode()
+        while h:
+            v, i = heappop(h)
+            p.next = ListNode(v)
+            p = p.next
+            if lists[i]:
+                heappush(h, [lists[i].val, i])
+                lists[i] = lists[i].next
+        
+        return head.next
         
