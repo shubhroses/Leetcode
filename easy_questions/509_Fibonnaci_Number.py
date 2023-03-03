@@ -36,3 +36,19 @@ class Solution:
             y = cur
             
         return cur
+    
+class Solution:
+    def fib(self, n: int) -> int:
+        """
+
+        """
+        if n == 0:
+            return 0
+        first = 0
+        second = 1
+        for _ in range(n-1):
+            temp = first
+            first = second
+            second = first + temp
+        
+        return second
