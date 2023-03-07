@@ -46,7 +46,33 @@ def solve_knapsack_bottom_up(profits, weights, capacity):
             dp[i][c] = max(profit1, profit2)
     return dp[n-1][capacity]
 
+def solve_knapsack_recursive(profits, weights, capacity):
+    """
+    Base case:
+        Make sure that currenty capacity is > 0 and the current index is less than the length of the arrays
+
+    Take:
+        helper(currentCapacity - weights[ind], ind + 1) + profits[ind]
+
+    Leave:
+        helper(currentCapacity, ind + 1)
+
+    return max(take, leave)
+    """
+    def helper(currentCapacity, ind):
+        if currentCapacity <= 0 or ind >= len(profits):
+            return 0
+
+        # Take
+        take = 0
+        if weights[ind] <= currentCapacity:
+            take = helper(currentCapacity - weights[ind], ind + 1) + profits[ind]
+        leave = helper(currentCapacity, ind + 1)
+
+        return max(take, leave)
+    return helper(capacity, 0)
+
 if __name__ == "__main__":
-    print(solve_knapsack_bottom_up([1, 6, 10, 16], [1, 2, 3, 5], 5))
-    print(solve_knapsack_bottom_up([1, 6, 10, 16], [1, 2, 3, 5], 6))
-    print(solve_knapsack_bottom_up([1, 6, 10, 16], [1, 2, 3, 5], 7))
+    print(solve_knapsack_recursive([1, 6, 10, 16], [1, 2, 3, 5], 5))
+    print(solve_knapsack_recursive([1, 6, 10, 16], [1, 2, 3, 5], 6))
+    print(solve_knapsack_recursive([1, 6, 10, 16], [1, 2, 3, 5], 7))
