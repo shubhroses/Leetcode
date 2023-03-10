@@ -17,3 +17,54 @@ class Solution:
             return take or leave
         
         return helper(0, 0)
+    
+class Solution:
+    # Memo
+    def canPartition(self, nums: List[int]) -> bool:
+        tot = sum(nums)
+        if tot % 2 == 1:
+            return False
+        target = tot//2
+
+        memo = [[-1 for x in range(target + 1)] for y in range(len(nums))]
+
+        def helper(ind, curTot):
+            if curTot == target:
+                return 1 
+            if ind == len(nums) or curTot > target:
+                return 0
+            if memo[ind][curTot] == -1:
+                if helper(ind + 1, curTot + nums[ind]):
+                    memo[ind][curTot] = 1
+                    return 1
+                memo[ind][curTot] = helper(ind + 1, curTot)
+            return memo[ind][curTot]
+        
+        return True if helper(0, 0) == 1 else False
+    
+
+class Solution:
+    def canPartition(self, nums: List[int]) -> bool:
+        s = sum(nums)
+        if s % 2 == 1:
+            return False
+        s = s//2
+
+        n = len(nums)
+
+        memo = [[False for x in range(s + 1)] for y in range(n)]
+
+        for i in range(n):
+            memo[i][0] = True
+
+        for j in range(1, s+1):
+            memo[0][j] = nums[0] == j
+
+        for i in range(1, n):
+            for j in range(1, s+1):
+                if memo[i-1][j]:
+                   memo[i][j] = memo[i-1][j]
+                elif j >= nums[i]:
+                    memo[i][j] = memo[i-1][j-nums[i]]
+
+        return memo[n-1][s]
