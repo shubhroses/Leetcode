@@ -11,7 +11,6 @@ class Solution:
         ind = 0
         selected = [1, 1, 3]
         total = 0
-        
         """
         if not candidates or not target:
             return []
