@@ -13,7 +13,7 @@ class Solution:
         selected = [1, 1, 3]
         total = 0
         """
-        if not candidates or not target:
+        if not candidates or not target: 
             return []
         res = []
         def helper(ind, selected, total):
