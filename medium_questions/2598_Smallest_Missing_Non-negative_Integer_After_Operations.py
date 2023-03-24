@@ -11,7 +11,7 @@ class Solution:
         1234567
         """
         remCount = {i:0 for i in range(value)}
-        for num in nums:
+        for num in nums: 
             rem = num % value
             remCount[rem] += 1
             
