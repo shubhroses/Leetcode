@@ -19,7 +19,7 @@ class Solution:
         
         mn = min(remCount.values())
         
-        # print(mn)
+        # print(mn) 
         
         small = 0 
         for i in range(value):
