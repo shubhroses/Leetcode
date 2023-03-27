@@ -10,6 +10,7 @@ class Solution:
         1234567
         1234567
         """
+        
         remCount = {i:0 for i in range(value)}
         for num in nums: 
             rem = num % value
