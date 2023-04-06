@@ -85,6 +85,7 @@ class Solution:
         
         visited = set()
         
+        
         def checkCycle(course):
             if course in visited:
                 return True
