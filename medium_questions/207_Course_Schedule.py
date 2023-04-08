@@ -76,6 +76,7 @@ class Solution:
             if checkCycle(course):
                 return False
                 
+                
         return True
 
         # Neetcode solution
