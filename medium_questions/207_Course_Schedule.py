@@ -75,7 +75,6 @@ class Solution:
         for course in range(numCourses):
             if checkCycle(course):
                 return False
-                
         return True
 
         # Neetcode solution
