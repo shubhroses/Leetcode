@@ -77,7 +77,6 @@ class Solution:
                 return False
         return True
 
-
         # Neetcode solution
         adj = {i:[] for i in range(numCourses)}
         for [a, b] in prerequisites:
