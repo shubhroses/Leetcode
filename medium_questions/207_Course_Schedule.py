@@ -82,7 +82,6 @@ class Solution:
         for [a, b] in prerequisites:
             adj[a].append(b)
         
-        
         visited = set()
         
         def checkCycle(course):
