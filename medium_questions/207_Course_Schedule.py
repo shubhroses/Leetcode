@@ -78,12 +78,13 @@ class Solution:
         return True
 
         # Neetcode solution
-        
+
         adj = {i:[] for i in range(numCourses)}
         for [a, b] in prerequisites:
             adj[a].append(b)
         
         visited = set()
+        
         
         def checkCycle(course):
             if course in visited:
