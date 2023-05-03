@@ -6,4 +6,3 @@ class Solution:
         mx = max(sArr)
         return [sArr.index(mx), mx]
     
-    
