@@ -29,3 +29,4 @@ class Solution:
         s2 = s[n//2:][::-1]
         
         return(min(helper(s1, s2, "1"), helper(s1, s2, "0")))
+    
