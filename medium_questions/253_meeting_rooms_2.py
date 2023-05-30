@@ -48,6 +48,7 @@ class Solution:
             heapq.heappush(heap, e)
             res = max(res, len(heap))
 
+
         return res
 
 
