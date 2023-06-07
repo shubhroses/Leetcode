@@ -104,4 +104,39 @@ class Solution:
                 return False
                 
         return True
-    
+    class Solution:
+    def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
+        """
+        1. Create an adjacency list 
+            key = node
+            value = list of nodes that are prerequisites
+        2. Write a DFS function
+            Function determines weather a course can be completed
+            Base case: If the value is empty than can be completed
+            If all prerequisites can be completed that can be completed
+        3. For each course call the dfs function
+            Maintain a visited set so that while doing dfs, if reach an already visited node there is a cycle and can return false
+        """
+        adj = collections.defaultdict(list)
+        for node, prereq in prerequisites:
+            adj[node].append(prereq)
+
+        visited = set()
+        def dfs(node):
+            if not adj[node]:
+                return True
+            if node in visited:
+                return False
+            visited.add(node)
+            for prereq in adj[node]:
+                if not dfs(prereq):
+                    return False
+            visited.remove(node)
+            adj[node] = []
+            return True
+        
+        for course in range(numCourses):
+            if not dfs(course):
+                return False
+        return True
+            
