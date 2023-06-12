@@ -106,7 +106,7 @@ class Solution:
                 return False
                 
         return True
-    class Solution:
+class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
         """
         1. Create an adjacency list 
