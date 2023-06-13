@@ -68,9 +68,6 @@ def find_trees(nodes, edges):
                     leaves.append(child)
     return list(leaves)
     
-
-
-
     pass
 
 
