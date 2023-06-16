@@ -81,6 +81,7 @@ def solve_knapsack_recursive(profits, weights, capacity):
             return 0
 
         # Take
+        
         take = 0
         if weights[ind] <= currentCapacity:
             take = helper(currentCapacity - weights[ind], ind + 1) + profits[ind]
