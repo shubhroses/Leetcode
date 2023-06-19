@@ -42,6 +42,7 @@ class Solution:
         
         return True if helper(0, 0) == 1 else False
     
+    
 
 class Solution:
     def canPartition(self, nums: List[int]) -> bool:
