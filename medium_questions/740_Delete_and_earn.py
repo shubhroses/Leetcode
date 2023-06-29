@@ -14,4 +14,5 @@ class Solution:
                 earn2 = curEarn + earn2
                 earn1 = temp
         return earn2
+
         
