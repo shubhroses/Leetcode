@@ -15,4 +15,5 @@ class Solution:
                 earn1 = temp
         return earn2
 
+
         
