@@ -25,3 +25,46 @@ class Solution:
 
         helper(n, n, "")
         return res
+    
+class Solution:
+    def generateParenthesis(self, n: int) -> List[str]:
+        """
+        o = 3
+        c = 3
+
+        res = []
+
+        def helper(o, c, curStr):
+            if o == 0 and c == 0:
+                res.append(curStr)
+                return 
+            if o == c:
+                helper(o-1, c, curStr + "(")
+                return 
+            # Take open
+            helper(o-1, c, curStr + "(")
+
+            # Take closed
+            helper(o, c-1, curStr + ")")
+        
+        helper(n, n, "")
+        """
+        res = []
+
+        def helper(o, c, curStr):
+            if o < 0 or c < 0:
+                return
+            if c == 0:
+                res.append(curStr)
+                return 
+            if o == c:
+                helper(o-1, c, curStr + "(")
+                return 
+            # Take open
+            helper(o-1, c, curStr + "(")
+
+            # Take closed
+            helper(o, c-1, curStr + ")")
+        
+        helper(n, n, "")
+        return res
