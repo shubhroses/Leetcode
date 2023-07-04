@@ -95,4 +95,36 @@ Issues:
 
 
         """
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        """
+        1. Make a counter from nums 
+        nums = [1,1,1,2,2,3]
+        c = {1:3, 2:2, 3:1}
+            (count, num)
+        heap: [(-3, 1), (-2, 2), (-1, 3)]
+
+        Want to pop from heap k times
+            If not heap, 
+
+        nums = [4, 4, 5]
+        c = {2:4, 1:5}
+
+        heap = [(-2, 4), (-1, 5)]
+
+        [4, 5]
+        """
+        c = {}
+        for i, n in enumerate(nums):
+            c[n] = c.get(n, 0) + 1
         
+        h = []
+        heapq.heapify(h)
+        for num, count in c.items():
+            heapq.heappush(h, (-count, num))
+
+        res = []
+        for _ in range(k):
+            count, num = heapq.heappop(h)
+            res.append(num)
+        return res

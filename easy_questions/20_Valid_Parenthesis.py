@@ -17,3 +17,33 @@ class Solution:
             else:
                 stack.append(c)
         return not stack
+
+class Solution:
+    def isValid(self, string: str) -> bool:
+        """ 
+        string = "()[]"
+                     c
+        s = 
+        top = [
+
+        """
+        s = []
+        for c in string:
+            if c in ['{', '[', '(']:
+                s.append(c)
+            else:
+                if not s:
+                    return False
+                top = s.pop()
+                if top == '{':
+                    if c != '}':
+                        return False
+                if top == '(':
+                    if c != ')':
+                        return False
+                if top == '[':
+                    if c != ']':
+                        return False
+        if s:
+            return False
+        return True
