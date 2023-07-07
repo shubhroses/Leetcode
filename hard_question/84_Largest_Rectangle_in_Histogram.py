@@ -83,6 +83,7 @@ class Solution:
                 current_width = i - stack[-1] - 1
                 max_area = max(max_area, current_height * current_width)
             stack.append(i)
+            
 
         while stack[-1] != -1:
             current_height = heights[stack.pop()]
