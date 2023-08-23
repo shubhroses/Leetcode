@@ -6,6 +6,7 @@ authors = ["Shubhrose Singh <shubhroses@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
+pandas = "^2.0.3"
 
 [tool.poetry.dev-dependencies]
 
