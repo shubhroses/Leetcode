@@ -1,0 +1,32 @@
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        """
+        For each position find the max on the left and max on right
+        lMax, rMax
+
+        calculate water by min(lMax, rMax) - i
+
+                [4,2,0,3,2,5]
+                     i
+        curLMax = 4
+        lMax =  [0,4,4,4,4,4]
+        rMax =  [5,5,5,5,5,0]
+        """
+        lMax = [0 for _ in range(len(height))]
+        rMax = [0 for _ in range(len(height))]
+
+        curLMax = 0
+        for i, n in enumerate(height):
+            lMax[i] = curLMax
+            curLMax = max(curLMax, n)
+        
+        curRMax = 0
+        for i in range(len(height)-1, -1,-1):
+            rMax[i] = curRMax
+            curRMax = max(curRMax, height[i])
+        
+        res = 0
+        for i in range(len(height)):
+            water =  min(lMax[i], rMax[i]) - height[i]
+            res += max(water, 0)
+        return res
