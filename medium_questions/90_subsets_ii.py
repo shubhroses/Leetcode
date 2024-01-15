@@ -15,3 +15,27 @@ class Solution:
                 temp.append(nums[i])
                 res.append(temp)
         return res
+    
+
+class Solution:
+    def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
+        """
+
+        """
+        self.res = []
+        nums.sort()
+        def helper(i, cur):
+            if i == len(nums):
+                self.res.append(cur)
+                return
+            
+            #Take
+            helper(i+1, cur + [nums[i]])
+            while i + 1 < len(nums) and nums[i] == nums[i + 1]:
+                i += 1
+            #Leave
+            helper(i+1, cur)
+        
+        helper(0, [])
+
+        return self.res
