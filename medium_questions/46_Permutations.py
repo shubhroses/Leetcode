@@ -25,3 +25,43 @@ class Solution:
             c
 
         """
+
+
+class Solution:
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        """
+        Each element can be the first element
+        Of remaining elements. each element can be second element
+
+        nums = [0, 1]
+        res = []
+
+        cands = [0,1]
+        cur = []
+
+            cands = [1]
+            cur = [0]
+
+                cands = []
+                cur = [0, 1]
+
+
+            cands = [0]
+            cur = [1]
+
+                cands = []
+                cur = [1, 0]
+        """
+
+        self.res = []
+
+        def helper(cands, cur):
+            if not cands:
+                self.res.append(cur)
+                return
+            for i, e in enumerate(cands):
+                newArr = cands[:i] + cands[i+1:]
+                helper(newArr, cur + [e])
+
+        helper(nums, [])
+        return self.res
