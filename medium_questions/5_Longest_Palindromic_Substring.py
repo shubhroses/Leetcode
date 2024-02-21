@@ -51,3 +51,28 @@ class Solution:
                 res = evenLen
 
         return res
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
+        """
+        Have a for loop for each i
+
+        """
+        res = s[0]
+
+        for i in range(len(s)):
+            # Odd length
+            l, r = i-1, i+1
+            while l >= 0 and r < len(s) and s[l] == s[r]:
+                if r - l + 1 > len(res):
+                    res = s[l:r+1]
+                l -= 1
+                r += 1
+        
+            # Even Length
+            l, r = i, i + 1
+            while l >= 0 and r < len(s) and s[l] == s[r]:
+                if r - l + 1 > len(res):
+                    res = s[l:r+1]
+                l -= 1
+                r += 1
+        return res
