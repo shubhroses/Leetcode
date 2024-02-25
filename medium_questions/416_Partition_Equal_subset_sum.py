@@ -69,3 +69,26 @@ class Solution:
                     memo[i][j] = memo[i-1][j-nums[i]]
 
         return memo[n-1][s]
+
+class Solution:
+    def canPartition(self, nums: List[int]) -> bool:
+        tot = sum(nums)
+        if tot % 2 == 1:
+            return False
+        target = tot//2
+        memo = {}
+        def helper(i, cur):
+            if (i, cur) in memo:
+                return memo[(i, cur)]
+            if cur == target:
+                return True
+            if cur > target or i >= len(nums):
+                return False
+            take = helper(i+1, cur + nums[i])
+            leave = helper(i+1, cur)
+            if take or leave:
+                memo[(i, cur)] = True
+            else:
+                memo[(i, cur)] = False
+            return memo[(i, cur)]
+        return helper(0, 0)
