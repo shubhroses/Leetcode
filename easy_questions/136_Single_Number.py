@@ -13,3 +13,12 @@ class Solution:
         for n in nums:
             cur = cur^n
         return cur
+
+        # Non constant space
+        counter = collections.defaultdict(int)
+        for n in nums:
+            counter[n] += 1
+
+        for n, c in counter.items():
+            if c == 1:
+                return n
