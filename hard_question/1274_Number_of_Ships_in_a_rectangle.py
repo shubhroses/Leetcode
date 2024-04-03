@@ -10,7 +10,7 @@
 #		self.x = x
 #		self.y = y
 
-class Solution:
+class Solution: 
     def countShips(self, sea: 'Sea', topRight: 'Point', bottomLeft: 'Point') -> int:
         if (bottomLeft.x > topRight.x) or (bottomLeft.y > topRight.y):
             return 0
