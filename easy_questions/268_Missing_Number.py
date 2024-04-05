@@ -16,3 +16,16 @@ class Solution:
             if i != n:
                 return i
         return len(nums)
+        
+        
+        
+class Solution:
+    def missingNumber(self, nums: List[int]) -> int:
+        cur = 0
+        for n in nums:
+            cur = cur ^ n
+        
+        for i in range(len(nums)+1):
+            cur = cur ^ i
+        
+        return cur
