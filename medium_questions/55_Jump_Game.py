@@ -42,6 +42,36 @@ class Solution:
             if max_reach < i: return False
             if max_reach >= n - 1: return True
             max_reach = max(max_reach, i + x)
+
+
+class Solution:
+    def canJump(self, nums: List[int]) -> bool:
+        """
+        starting at the first element iterate through nums, decrementing jumps left
+        if cur element more than jumps left update jumps left
+
+        if jumps left reaches zero return false
+        return true
+
+        [3,2,1,0,4]
+               i         
+        jumpsLeft = 0
+
+        """
+        if nums[0] == 0:
+            if len(nums) == 1:
+                return True
+            return False
+        jumpsLeft = nums[0] - 1
+
+        for i in range(1, len(nums)-1):
+            cur = nums[i]
+            jumpsLeft = max(jumpsLeft, cur)
+            if jumpsLeft == 0:
+                return False
+            jumpsLeft -= 1
+        return True
+
         
         
         
