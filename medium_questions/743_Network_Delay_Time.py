@@ -3,6 +3,8 @@ class Solution:
         """
         Start a bfs/dfs from node k 
         Want to find length of longest path 
+        
+        When adding elements to an adjacency list, and accessing them later remember the order. For dijkstra you need a min heap and visited set.
         """
         edges = defaultdict(list)
         for u, v, w in times:
