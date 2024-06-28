@@ -29,3 +29,18 @@ class Solution:
         if n == 1:
             return True
         return False
+
+
+class Solution:
+    def isHappy(self, n: int) -> bool:
+        visited = set()
+        def helper(numbr):
+            if numbr in visited:
+                return False
+            if numbr == 1:
+                return True
+            visited.add(numbr)
+            newNum = sum(int(c)**2 for c in str(numbr))
+            return helper(newNum)
+
+        return helper(n)
