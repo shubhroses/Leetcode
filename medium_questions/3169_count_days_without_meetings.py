@@ -27,3 +27,26 @@ class Solution:
         return days - days_with_meetings
 
         # 3169_count_days_without_meetings.py
+
+class Solution:
+    def countDays(self, days: int, meetings: List[List[int]]) -> int:
+        """
+        1. Merge intervals
+        2. For all intervals, iterate and add to visited set
+        3. Iterate through days if not in visited increment count
+        """
+        meetings.sort()
+        meetings_joined = [meetings[0]]
+
+        for s, e in meetings[1:]:
+            last = meetings_joined[-1][1]
+            if s <= last:
+                meetings_joined[-1][1] = max(last, e)
+            else:
+                meetings_joined.append([s, e])
+        
+        res = days
+        for s, e in meetings_joined:
+            res -= (e-s+1)
+        return res
+
