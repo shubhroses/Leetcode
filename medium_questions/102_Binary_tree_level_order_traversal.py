@@ -7,7 +7,7 @@
 class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
         """
-        BFS
+        BFS 
         with queue
         """
         if not root:
