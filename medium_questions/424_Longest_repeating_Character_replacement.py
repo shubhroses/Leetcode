@@ -49,3 +49,44 @@ class Solution:
                 l+=1
             res = max(res, r-l+1)
         return res
+
+class Solution:
+    def characterReplacement(self, s: str, k: int) -> int:
+        """
+        Need to find substring where the substring is valid
+        substring is valid if n=len substring - occurence of most common element is <= k
+
+        windows
+
+        l, r
+
+        add right element to dict
+        length = r-l+1
+
+        while lenght - max > k:
+            remove left elemetn
+
+        0123456
+        AABABBA
+        l
+           r
+        window = {A: 3, B: 1}
+        res = 4
+        k = 1
+        """
+
+        l = r = 0
+        window = collections.defaultdict(int)
+        res = 0
+
+        for r in range(len(s)):
+            window[s[r]] += 1
+
+            while (r-l+1) - max(window.values()) > k:
+                window[s[l]] -= 1
+                if window[s[l]] == 0:
+                    del window[s[l]]
+                l += 1
+            res = max(res, r-l+1)
+        return res
+        
