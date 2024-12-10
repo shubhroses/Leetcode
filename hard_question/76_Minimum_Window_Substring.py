@@ -128,3 +128,72 @@ class Solution:
                 l+=1
         l, r = res
         return s[l:r+1] if resLen != float("inf") else ""
+
+class Solution:
+    def minWindow(self, s: str, t: str) -> str:
+        """
+        Create a counter for t
+
+        Start with a window of len(t) in s, if all characters present, save window len
+
+        if not all characters present, move window to right, leaving left
+        if valid window, start popping from left until not valid 
+
+        once not valid start adding to window again until valid and repeat process
+
+
+             0123456789012
+        s = "ADOBECODEBANC"
+               l        r
+             012
+        t = "ABC"
+
+        n = 3
+
+        sW = {D:2, O:2, B:2, E:2, C:1, A:1}
+
+        tW = {A:1, B:1, C:1}
+
+
+        """
+        def validWindow(sWindow, tWindow):
+            for c, count in tWindow.items():
+                if sWindow[c] < count:
+                    return False
+            return True
+
+        tWindow = defaultdict(int)
+        sWindow = defaultdict(int)
+
+        n = len(t)
+        for c in t:
+            tWindow[c] += 1
+        
+        for c in s[:n]:
+            sWindow[c] += 1
+        
+        if tWindow == sWindow:
+            return s[:n]
+        
+        
+        l = 0
+        res = None
+        for r in range(n,len(s)):
+            sWindow[s[r]] += 1
+            while validWindow(sWindow, tWindow):
+                if not res or r-l+1 < len(res):
+                    res = s[l:r+1]
+                sWindow[s[l]] -= 1
+                if sWindow[s[l]] == 0:
+                    del sWindow[s[l]]
+                l += 1
+        if not res:
+            return ""
+        return res
+
+        
+            
+
+
+        
+
