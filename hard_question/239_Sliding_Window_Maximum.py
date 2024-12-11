@@ -44,3 +44,60 @@ class Solution:
                 l+=1
             r+=1
         return output
+
+
+class Solution:
+    def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
+        """
+        create a queue
+
+        add right element to queue
+
+        when you add an element on the right, all elements less than that element on the left of the queue will never be a max
+
+        The left most value will be the max
+
+
+        1. Create a queue
+        2. For each right element, 
+            pop from queue, while the left element is less than right
+            add right element to queueadd left element to queue
+
+         
+        [6,3,2,5,4]
+               r
+        k = 3
+
+        q = [6,3,2]
+
+        res = [6]
+
+        """
+
+        q = deque()
+
+        # Initialize the deque with the first k elements
+        for i in range(k):
+            # Pop from the right while current element is greater than the last in deque
+            while q and nums[q[-1]] < nums[i]:
+                q.pop()
+            q.append(i)
+        
+        res = [nums[q[0]]]
+
+        # Process the rest of the elements
+        for r in range(k, len(nums)):
+            # Remove indices that are out of the window
+            while q and q[0] <= r - k:
+                q.popleft()
+
+            # Remove elements smaller than the current element from the right
+            while q and nums[q[-1]] < nums[r]:
+                q.pop()
+
+            q.append(r)
+            res.append(nums[q[0]])
+
+        return res
+
+        
