@@ -17,3 +17,12 @@ class Solution:
             prev = head
             head = temp
         return prev
+        
+        p, c = None, head
+        while c:
+            n = c.next
+            c.next = p
+            p = c
+            c = n
+        return p
+        
