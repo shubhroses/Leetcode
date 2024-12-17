@@ -101,3 +101,21 @@ class Solution:
             cur = cur.next
         
         return old[head]
+
+
+
+        self.curToNewNodes = {}
+
+        def helper(curNode):
+            if not curNode:
+                return None
+            if curNode in self.curToNewNodes:
+                return self.curToNewNodes[curNode]
+            newNode = Node(curNode.val)
+            self.curToNewNodes[curNode] = newNode
+
+            newNode.next = helper(curNode.next)
+            newNode.random = helper(curNode.random)
+            return newNode
+        
+        return helper(head)
