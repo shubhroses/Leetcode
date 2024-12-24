@@ -186,3 +186,103 @@ Remove form list
 # obj = LRUCache(capacity)
 # param_1 = obj.get(key)
 # obj.put(key,value)
+
+class ListNode:
+    def __init__(self, key=None, value=None):
+        self.key = key
+        self.value = value
+        self.prev = None
+        self.next = None
+
+
+class LRUCache:
+    """
+    Need capacity and used as varaible
+    Map for key to value 
+    If key exists update Map
+    if key does not exist add to map and 
+    to head of doubley linked list
+    if used > capacity, remove from tail of linked list
+
+    h <=> t
+
+    5
+
+    h <-> 5 <-> t
+    """
+    def __init__(self, capacity: int):
+        self.head = ListNode()
+        self.tail = ListNode()
+
+        self.head.next = self.tail
+        self.tail.prev = self.head
+
+        self.capacity = capacity
+        self.used = 0
+
+        self.map = {}
+        
+    def get(self, key: int) -> int:
+        """
+        Figure out node, so map should store node
+        """
+        if key in self.map:
+            value = self.removeFromMiddle(key)
+            self.addToHead(key, value)
+            return value
+        return -1
+    
+    def removeFromMiddle(self, key):
+        nodeToDel = self.map[key]
+        prevNode, nextNode = nodeToDel.prev, nodeToDel.next
+
+        prevNode.next = nextNode
+        nextNode.prev = prevNode
+        res = nodeToDel.value
+        del self.map[key]
+        return res
+    
+    def addToHead(self, key, value) -> None:
+        newNode = ListNode(key, value)
+        newNode.next = self.head.next
+        self.head.next.prev = newNode
+        self.head.next = newNode
+        newNode.prev = self.head
+
+        self.map[key] = newNode
+    
+    def removeFromTail(self) -> None:
+        lastNodeKey = self.tail.prev.key
+
+        newLast = self.tail.prev.prev
+        newLast.next = self.tail
+        self.tail.prev = newLast
+
+        del self.map[lastNodeKey]
+        
+
+    def put(self, key: int, value: int) -> None:
+        if key in self.map:
+            self.removeFromMiddle(key)
+            self.addToHead(key, value)
+            return
+        
+        if self.used == self.capacity:
+            # Add to head
+            self.addToHead(key, value)
+
+            # remove from tail
+            self.removeFromTail()
+            
+        else:
+            # Add to head
+            self.addToHead(key, value)
+            self.used += 1
+        
+
+
+# Your LRUCache object will be instantiated and called as such:
+# obj = LRUCache(capacity)
+# param_1 = obj.get(key)
+# obj.put(key,value)
+
