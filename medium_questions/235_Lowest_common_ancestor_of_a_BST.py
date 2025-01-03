@@ -46,3 +46,60 @@ class Solution:
         # We have found the split point, i.e. the LCA node.
         else:
             return root
+
+
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+        """
+        Need to find node where val is >= min(pVal, qVal) and <= max(pVal, qVal)
+
+        if both greater than go right
+
+        if both less go left
+        """
+        pVal, qVal = max(p.val, q.val), min(p.val, q.val)
+
+        while True:
+            if pVal >= root.val and qVal <= root.val:
+                break
+            
+            if pVal < root.val and qVal < root.val:
+                root = root.left
+            else:
+                root = root.right
+
+        return root
+
+
+        
+        self.res = None
+
+        pVal, qVal = max(p.val, q.val), min(p.val, q.val)
+
+        def helper(node):
+            if not node:
+                return
+
+            if pVal >= node.val and qVal <= node.val:
+                self.res = node
+                return
+            
+            if pVal < node.val and qVal < node.val:
+                helper(node.left)
+            else:
+                helper(node.right)
+        
+        helper(root)
+        return self.res
+
+
+            
+            
