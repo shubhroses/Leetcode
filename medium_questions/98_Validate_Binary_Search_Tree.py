@@ -42,3 +42,35 @@ class Solution:
             
 
         return helper(root)
+
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def isValidBST(self, root: Optional[TreeNode]) -> bool:
+        """
+        if not root: true
+        helper that returns max and min elements in subtree
+        """
+        self.res = True
+
+        def helper(node):
+            if not node:
+                return (float("-inf"), float("inf"))
+            
+            leftMax, leftMin = helper(node.left)
+            rightMax, rightMin = helper(node.right)
+
+            if node.val <= leftMax or node.val >= rightMin:
+                self.res = False
+
+            return (max(leftMax, rightMax, node.val), min(leftMin, rightMin, node.val))
+        
+        helper(root)
+        
+        return self.res
+        
