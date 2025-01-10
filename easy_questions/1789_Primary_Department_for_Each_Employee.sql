@@ -24,3 +24,18 @@ select *
 from multipleDepartment;
 
 -- 1789_Primary_Department_for_Each_Employee.sql
+
+select
+    employee_id,
+    department_id
+from Employee e
+where primary_flag = 'Y' OR
+    employee_id in 
+    (select
+        employee_id,
+        department_id
+    from Employee e
+    group by employee_id
+    having count(employee_id)=1)
+
+-- 1789_Primary_Department_for_Each_Employee.sql
