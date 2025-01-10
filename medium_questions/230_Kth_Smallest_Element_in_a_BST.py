@@ -64,3 +64,39 @@ class Solution:
             
         helper(root)
         return self.res
+
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
+        """
+        In order traversal, k times
+
+        inorder traversal is dfs
+        """
+        self.res = None
+
+        def inOrderTraversal(node, iter):
+            if not node:
+                return 0
+            
+            left = inOrderTraversal(node.left, iter)
+
+            if left + 1 + iter == k:
+                if not self.res:
+                    self.res = node.val
+                return float("inf")
+
+            right = inOrderTraversal(node.right, left + 1 + iter)
+
+            return left + right + 1
+        
+        inOrderTraversal(root, 0)
+        
+        return self.res
+
