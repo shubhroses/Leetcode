@@ -44,6 +44,20 @@ class Solution:
         
         dfs(root)
         return res
+        
+        def dfs(node):
+            global res
+            if not node:
+                return 0
+            leftMax = max(dfs(node.left), 0)
+            rightMax = max(dfs(node.right), 0)
+            
+            res = max(res, node.val + leftMax + rightMax)
+            
+            return node.val + max(leftMax, rightMax)
+        
+        dfs(root)
+        return res
 # Test
 # Definition for a binary tree node.
 # class TreeNode:
