@@ -96,4 +96,3 @@ if __name__ == "__main__":
     print(solve_knapsack_memo([1, 6, 10, 16], [1, 2, 3, 5], 7))#
 #
 #
-#
