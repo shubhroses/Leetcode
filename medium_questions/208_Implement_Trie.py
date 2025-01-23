@@ -91,3 +91,66 @@ class Trie:
             cur = cur.dict[c]
         # If we can follow the prefix through, it exists
         return True
+
+"""
+Need a node with a dictionary that connects letters to other nodes
+
+To insert a word 
+for each letter, if its not in current node, add to dict and add new node as value
+    update cur to new added node
+
+to search a word
+    for each letter if letter not in dict return False
+    if reach end of word and cur is word is false return False
+    return True
+
+to check if starts starts
+    for each letter if letter in curdict, move down trie
+
+01
+ap
+c
+i
+"""
+class Node:
+    def __init__(self):
+        self.dict = {}
+        self.isWord = False
+
+class Trie:
+    def __init__(self):
+        self.startNode = Node()
+
+    def insert(self, word: str) -> None:
+        cur = self.startNode
+        for i, c in enumerate(word):
+            if c not in cur.dict:
+                cur.dict[c] = Node()
+            cur = cur.dict[c]
+        cur.isWord = True
+
+        
+    def search(self, word: str) -> bool:
+        cur = self.startNode
+        for i, c in enumerate(word):
+            if c not in cur.dict:
+                return False
+            cur = cur.dict[c]
+        return cur.isWord
+        
+
+    def startsWith(self, prefix: str) -> bool:
+        cur = self.startNode
+        for c in prefix:
+            if c not in cur.dict:
+                return False
+            cur = cur.dict[c]
+        return True
+        
+
+
+# Your Trie object will be instantiated and called as such:
+# obj = Trie()
+# obj.insert(word)
+# param_2 = obj.search(word)
+# param_3 = obj.startsWith(prefix)
