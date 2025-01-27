@@ -110,3 +110,59 @@ class Solution:
             for c in range(len(board[0])):
                 dfs(r, c, root, "")
         return list(res)
+
+
+class trieNode():
+    def __init__(self):
+        self.dict = {}
+        self.isWord = False
+
+class Solution:
+    def findWords(self, board: List[List[str]], words: List[str]) -> List[str]:
+        """
+        Add all words to a trie
+        Do a dfs starting at each cell, avoiding visited
+        if is word add to output
+        """
+        node = trieNode()
+  
+        for word in words:
+            cur = node
+            for c in word:
+                if c not in cur.dict:
+                    cur.dict[c] = trieNode()
+                cur = cur.dict[c]
+            cur.isWord = True
+        
+        self.visited = set()
+        self.res = set()
+
+        def helper(r, c, cur, node):
+            if cur and node and node.isWord:
+                self.res.add(cur)
+
+            if r < 0 or r >= len(board) or c < 0 or c >= len(board[0]) or (r, c) in self.visited:
+                return
+            
+            # print(r, c, board[r][c], "cur: ", cur, node.dict, node.isWord)
+
+
+
+            if board[r][c] not in node.dict:
+                return
+            
+            self.visited.add((r,c))
+
+            newCur = cur + board[r][c]
+            helper(r+1, c, newCur, node.dict[board[r][c]])
+            helper(r-1, c, newCur, node.dict[board[r][c]])
+            helper(r, c+1, newCur, node.dict[board[r][c]])
+            helper(r, c-1, newCur, node.dict[board[r][c]])
+
+            self.visited.remove((r,c))
+        
+        for r in range(len(board)):
+            for c in range(len(board[0])):
+                helper(r, c, "", node)
+        
+        return list(self.res)
