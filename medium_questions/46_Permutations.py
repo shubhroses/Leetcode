@@ -65,3 +65,25 @@ class Solution:
 
         helper(nums, [])
         return self.res
+
+
+class Solution:
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        """
+        At each index, select one from available
+        """
+        res = []
+
+        def helper(cur, avail):
+            if len(cur) == len(nums):
+                res.append(cur)
+                return
+
+            for ind, a in enumerate(avail):
+                helper(cur + [a], avail[:ind] + avail[ind+1:])
+            
+
+            
+        for i in range(len(nums)):
+            helper([nums[i]], nums[:i] + nums[i+1:])
+        return res
