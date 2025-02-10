@@ -78,6 +78,6 @@ class Solution:
                     helper(i+1, cur + [s[i]])
                 # If last element not palendrom can only add to prev
         
-        helper(0, [])
+        helper(0, []) 
 
         return self.res
