@@ -17,7 +17,7 @@ class Solution:
 
         return idle_time + len(tasks)
 
-class Solution:
+class Solution: 
     def leastInterval(self, tasks: List[str], n: int) -> int:
         """
         For duplicates add n to subsequent ones
