@@ -1,4 +1,4 @@
-class Solution(object):
+class Solution(object): 
     def isBalanced(self, root):
         return (self.Height(root) >= 0)
     def Height(self, root):
