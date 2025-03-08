@@ -1,4 +1,4 @@
-class Solution:
+class Solution: 
     def largestVariance(self, s: str) -> int:
         """
         For each substring, calculate variance and return max
