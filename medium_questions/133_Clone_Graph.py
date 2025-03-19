@@ -1,4 +1,4 @@
-class Solution:
+class Solution: 
     def cloneGraph(self, node: 'Node') -> 'Node':
         # bfs iteratively
         if not node:
