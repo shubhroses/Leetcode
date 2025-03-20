@@ -1,5 +1,5 @@
 class Solution: 
-    def getSmallestString(self, s: str) -> str:
+    def getSmallestString(self, s: str) -> str: 
         saved = s
         for i in range(0, len(s)-1):
             l, r = s[i], s[i+1] 
