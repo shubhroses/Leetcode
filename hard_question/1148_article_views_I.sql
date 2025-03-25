@@ -11,7 +11,7 @@ class Solution:
          min = inf
          res = -inf
         
-        min = min(min, l)
+        min = min(min, l) 
         res = max(res, l - min)
 
         """
