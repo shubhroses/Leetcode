@@ -1,4 +1,4 @@
-class Solution:
+class Solution: 
     def bitwiseComplement(self, n: int) -> int:
         """
         complement = number * all bits set
