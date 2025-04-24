@@ -1,4 +1,4 @@
-class Solution: 
+class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         """
         Iterate through l, maintaining min prices
