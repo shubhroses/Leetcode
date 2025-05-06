@@ -1,4 +1,4 @@
-class Solution:
+class Solution: 
     def subsets(self, nums: List[int]) -> List[List[int]]:
         """
         At every index can take or leave element
