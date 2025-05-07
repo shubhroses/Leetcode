@@ -1,8 +1,8 @@
 class Solution:
-    def getSmallestString(self, s: str) -> str:
+    def getSmallestString(self, s: str) -> str: 
         saved = s
         for i in range(0, len(s)-1):
-            l, r = s[i], s[i+1]
+            l, r = s[i], s[i+1] 
             
             # both odd or even
             if (int(l) % 2 == 1 and int(r) % 2 == 1) or (int(l) % 2 == 0 and int(r) % 2 == 0):

@@ -28,4 +28,42 @@ class Solution:
         helper(0, [], 0)
         return res
             
+        class Solution:
+    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+        """
+        Sort candidates
+
+        if cur creater than target: stop
+
+        if cur = target:
+            add to res
         
+        at each index can take or leave
+        """
+
+        res = []
+        candidates.sort()
+
+        def helper(i, cur, curSum):
+            if curSum == target:
+                res.append(cur.copy())
+                return
+
+            if i == len(candidates) or curSum > target:
+                return
+            
+            # take stay
+            cur.append(candidates[i])
+
+            helper(i, cur, curSum + cand idates[i])
+
+            cur.pop()
+
+            # leave
+            helper(i+1, cur, curSum)
+
+        helper(0, [], 0)
+
+        return res
+
+

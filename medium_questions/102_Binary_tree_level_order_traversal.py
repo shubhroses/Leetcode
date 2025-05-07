@@ -12,7 +12,7 @@ class Solution:
         """
         if not root:
             return None
-        q = collections.deque()
+        q = collections.deque() 
         q.append(root)
         
         res = []

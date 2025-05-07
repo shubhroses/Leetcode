@@ -10,7 +10,7 @@ class Solution:
         q.append(root)
         res = []
         
-        if not root:
+        if not root: 
             return None
         flag = -1
         while q:

@@ -89,4 +89,35 @@ class Solution:
         return False
     
         # n * m to visit every position
-        # call stack of dfs will be length of the word but since 4 directions it will be 4^n
+        # call stack of dfs will be length of the word but since 4 directions it will be 4^
+
+
+
+class Solution:
+    def exist(self, board: List[List[str]], word: str) -> bool:
+        """
+        Starting at each node do a dfs
+        Maintain a visited set that you append and pop from for backtracking
+        """
+        visited = set()
+        def helper(r, c, i):
+            if r < 0 or r >= len(board) or c < 0 or c >= len(board[0]) or (r, c) in visited:
+                return False
+            
+            if i == len(word)-1 and board[r][c] == word[i]:
+                return True
+            
+            if board[r][c] != word[i]:
+                return False
+
+            visited.add((r, c))
+            res = helper(r+1, c, i+1) or helper(r-1, c, i+1) or helper(r, c+1, i+1) or helper(r, c-1, i+1)
+            visited.remove((r, c))
+            return res
+            
+        
+        for r in range(len(board)):
+            for c in range(len(board[0])):
+                if helper(r, c, 0):
+                    return True
+        return False

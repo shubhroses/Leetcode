@@ -5,13 +5,13 @@ class Solution:
 
         Maintian res which is max cur pric - min price 
 
-        [7,1,5,3,6,4]
+        [7,1,5,3,6,4] 
          L
 
          min = inf
          res = -inf
         
-        min = min(min, l)
+        min = min(min, l) 
         res = max(res, l - min)
 
         """
