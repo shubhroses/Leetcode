@@ -10,7 +10,7 @@ class Solution:
 
 
         [3, 4]
-               i
+               i 
         []
             [4]
             []
