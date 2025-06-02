@@ -1,4 +1,4 @@
-# Commit for Monday, June 2, 2025
+# Commit for Monday, June 2, 2025 - Updated implementation
 # Added for backdated commit on 5/23/2025
 # Added for backdated commit on 5/19/2025
 # Commit for Tuesday, June 3, 2025
@@ -18,7 +18,6 @@ class Solution:
         can take or leave element at i
         if i == len(nums) add to res set
 
-
         [3, 4]
                i 
         []
@@ -27,21 +26,17 @@ class Solution:
         [3]
             [3, 4]
             [3]
-        
         """
         self.res = []
         
         def helper(i, cur):
             if i == len(nums):
-                self.res.append(cur)
+                self.res.append(cur[:])  # Make a copy of cur
                 return
             # take
-            newCur = []
-            if not cur:
-                newCur = [nums[i]]
-            else:
-                newCur = cur.append(nums[i])
-            helper(i+1, newCur)
+            cur.append(nums[i])
+            helper(i+1, cur)
+            cur.pop()  # Remove the last element
             #leave
             helper(i+1, cur)
 
