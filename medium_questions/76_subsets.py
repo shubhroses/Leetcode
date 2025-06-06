@@ -1,15 +1,6 @@
-# Commit for Monday, June 2, 2025 - Updated implementation
+# Commit for Monday, May 26, 2025
 # Added for backdated commit on 5/23/2025
 # Added for backdated commit on 5/19/2025
-# Commit for Tuesday, June 3, 2025
-# Commit for Wednesday, June 4, 2025
-# Commit for Thursday, June 5, 2025
-# Commit for Friday, June 6, 2025
-# Commit for Monday, May 26, 2025
-# Commit for Tuesday, May 27, 2025
-# Commit for Wednesday, May 28, 2025
-# Commit for Thursday, May 29, 2025
-# Commit for Friday, May 30, 2025
 class Solution: 
     def subsets(self, nums: List[int]) -> List[List[int]]:
         """
