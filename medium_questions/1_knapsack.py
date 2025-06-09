@@ -1,5 +1,4 @@
 #
-#
 """
 When using a 2d array for memoization, have to do this method
 [[-1 for x in range(capacity+1)] for y in range(len(profits))]
