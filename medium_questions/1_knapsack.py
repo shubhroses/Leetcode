@@ -93,4 +93,4 @@ def solve_knapsack_recursive(profits, weights, capacity):
 if __name__ == "__main__":
     print(solve_knapsack_memo([1, 6, 10, 16], [1, 2, 3, 5], 5))
     print(solve_knapsack_memo([1, 6, 10, 16], [1, 2, 3, 5], 6))
-    print(solve_knapsack_memo([1, 6, 10, 16], [1, 2, 3, 5], 7))
+    print(solve_knapsack_memo([1, 6, 10, 16], [1, 2, 3, 5], 7))#
